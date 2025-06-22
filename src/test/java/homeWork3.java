@@ -11,10 +11,17 @@ import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class homeWork3 {
 
+    @BeforeAll
+    static void predy() {
+
+        Configuration.baseUrl = "https://demoqa.com";
+
+    }
+
     @Test
     void demo_qa_test() {
 
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
 
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         $("#firstName").setValue("Daniil");
