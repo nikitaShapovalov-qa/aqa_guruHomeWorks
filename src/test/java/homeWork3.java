@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.*;
 public class homeWork3 {
 
     @Test
-    void findElementGithub3() {
-
+    void makeSomeConflicts() {
     }
 }
