@@ -25,11 +25,6 @@ public class homeWork4 {
         //вычисления с int и double
         System.out.println("Usual price for this goods is " + (varInt + varDouble) + " " + "USD" + " " +
                 "but ur special price for this goods is " + (varInt - varDouble) + " " + "USD");
-        /* System.out.print(varInt + varDouble);
-        System.out.print(" USD, ");
-        System.out.print("but your special price for this goods is ");
-        System.out.print(varInt - varDouble);
-        System.out.print(" USD\n");*/
 
         System.out.println("#######");
 
