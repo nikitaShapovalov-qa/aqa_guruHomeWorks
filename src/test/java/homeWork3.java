@@ -1,6 +1,8 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.devtools.v85.page.Page;
+import pages.PageForm;
 
 import java.io.File;
 
@@ -10,6 +12,8 @@ import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class homeWork3 {
+
+    PageForm pageForm = new PageForm();
 
     @BeforeAll
     static void predy() {
@@ -23,31 +27,24 @@ public class homeWork3 {
 
         open("/automation-practice-form");
 
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        $("#firstName").setValue("Daniil");
-        $("#lastName").setValue("Konoval");
-        $("#userEmail").setValue("pig58@mail.ru");
-        $x("//div[@id='genterWrapper']").$(byText("Other")).click();
-        //$x("//label[@class='custom-control-label' and contains(text(), 'Other')]").click();
-        $("#userNumber").setValue("9528125252");
-        $("#dateOfBirthInput").click();
-        $x("//select[@class='react-datepicker__month-select']//option[@value='0']").click();
-        $x("//select[@class='react-datepicker__year-select']//option[@value='1952']").click();
-        $x("//div[@aria-label='Choose Tuesday, January 1st, 1952']").click();
-        $("#subjectsInput").setValue("Computer Science").pressEnter();
-        $x("//div[@id='hobbiesWrapper']").$(byText("Sports")).click();
-        //$x("//label[@class='custom-control-label' and contains(text(), 'Sports')]").click();
-        File file = new File("/Users/nikitashapovalov/IdeaProjects/aqa_guruHomeWorks/src" +
-                "/test/resources/Снимок экрана 2025-05-20 в 22.35.29.png");
-        $x("//div[@class='form-file']//input[@id='uploadPicture']").uploadFile(file);
-        $("#currentAddress").setValue("Steam, CS2");
-        $x("//div[@id='state']").click();
-        $x("//div[contains(text(), 'NCR')]").click();
-        $("#city").click();
-        $x("//div[contains(text(), 'Gurgaon')]").click();
+        pageForm.pageIsOpen();
 
-        $("#submit").click();
-        $x("//div[@id='example-modal-sizes-title-lg']")
-                .shouldHave(text("Thanks for submitting the form"));
+        pageForm.setFirstName("Daniil");
+        pageForm.setLastName("Konovalov");
+        pageForm.setUserEmail("konoval58rus@mail.ru");
+        pageForm.setGender("Other");
+        pageForm.setUserNumber("89128525252");
+
+        pageForm.setDateOfBirth("0", "1952", "Choose Tuesday, January 1st, 1952");
+
+        pageForm.setSubjects("Computer Science");
+        pageForm.setHobbies("Sports");
+        pageForm.setCurrentAddress("Steam", "CS2");
+        pageForm.setState("NCR");
+        pageForm.setCity("Gurgaon");
+
+        pageForm.clickSubmit();
+        pageForm.setModalIsOpen("Thanks for submitting the form");
+
     }
 } 
