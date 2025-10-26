@@ -119,7 +119,7 @@ public class PageForm {
     }
 
     @Step("Выбрать предмет")
-    public void setCurrentAddress(String value, String value1) {
+    public void setCurrentAddress(String value) {
         this.currentAddress.setValue(value).click();
     }
 

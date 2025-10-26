@@ -1,37 +1,38 @@
 import com.codeborne.selenide.Configuration;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.devtools.v85.page.Page;
 import pages.PageForm;
 
-import java.io.File;
+import java.util.Locale;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.files.DownloadActions.click;
+import static com.codeborne.selenide.Selenide.open;
 
-public class homeWork3 {
+public class homeWork3javaFaker {
 
     PageForm pageForm = new PageForm();
 
     @BeforeAll
     static void predy() {
-
         Configuration.baseUrl = "https://demoqa.com";
-
     }
 
     @Test
     void demo_qa_test() {
+        Faker faker = new Faker(new Locale("ru"));
+
+        String firstName = faker.name().firstName();
+        String lastName = faker.name().lastName();
+        String userEmail = faker.internet().emailAddress();
+        String streetAddress = faker.address().streetAddress();
 
         open("/automation-practice-form");
 
         pageForm.pageIsOpen();
 
-        pageForm.setFirstName("Daniil");
-        pageForm.setLastName("Konovalov");
-        pageForm.setUserEmail("konoval58rus@mail.ru");
+        pageForm.setFirstName(firstName);
+        pageForm.setLastName(lastName);
+        pageForm.setUserEmail(userEmail);
         pageForm.setGender("Other");
         pageForm.setUserNumber("89128525252");
 
@@ -39,12 +40,11 @@ public class homeWork3 {
 
         pageForm.setSubjects("Computer Science");
         pageForm.setHobbies("Sports");
-        pageForm.setCurrentAddress("Steam", "CS2");
+        pageForm.setCurrentAddress(streetAddress);
         pageForm.setState("NCR");
         pageForm.setCity("Gurgaon");
 
         pageForm.clickSubmit();
         pageForm.setModalIsOpen("Thanks for submitting the form");
-
     }
 } 
