@@ -11,6 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class homeWork3javaFaker {
 
     PageForm pageForm = new PageForm();
+    TestData data = new TestData();
 
     @BeforeAll
     static void predy() {
@@ -19,20 +20,13 @@ public class homeWork3javaFaker {
 
     @Test
     void demo_qa_test() {
-        Faker faker = new Faker(new Locale("ru"));
-
-        String firstName = faker.name().firstName();
-        String lastName = faker.name().lastName();
-        String userEmail = faker.internet().emailAddress();
-        String streetAddress = faker.address().streetAddress();
-
         open("/automation-practice-form");
 
         pageForm.pageIsOpen();
 
-        pageForm.setFirstName(firstName);
-        pageForm.setLastName(lastName);
-        pageForm.setUserEmail(userEmail);
+        pageForm.setFirstName(data.firstName);
+        pageForm.setLastName(data.lastName);
+        pageForm.setUserEmail(data.userEmail);
         pageForm.setGender("Other");
         pageForm.setUserNumber("89128525252");
 
@@ -40,7 +34,7 @@ public class homeWork3javaFaker {
 
         pageForm.setSubjects("Computer Science");
         pageForm.setHobbies("Sports");
-        pageForm.setCurrentAddress(streetAddress);
+        pageForm.setCurrentAddress(data.streetAddress);
         pageForm.setState("NCR");
         pageForm.setCity("Gurgaon");
 
