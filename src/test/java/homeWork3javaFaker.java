@@ -1,5 +1,7 @@
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.PageForm;
@@ -7,6 +9,7 @@ import pages.PageForm;
 import java.util.Locale;
 
 import static com.codeborne.selenide.Selenide.open;
+import static io.qameta.allure.Allure.step;
 
 public class homeWork3javaFaker {
 
@@ -19,12 +22,17 @@ public class homeWork3javaFaker {
     }
 
     @Test
-    void demo_qa_test() {
-        open("/automation-practice-form");
+    public void demo_qa_test() {
+        SelenideLogger.addListener("allure", new AllureSelenide());
+
+        step("Открываем страницу формы", () -> {
+            open("/automation-practice-form");
+        });
 
         pageForm.pageIsOpen();
+        pageForm.takeScreenshot();
 
-        pageForm.setFirstName(data.firstName);
+/*        pageForm.setFirstName(data.firstName);
         pageForm.setLastName(data.lastName);
         pageForm.setUserEmail(data.userEmail);
         pageForm.setGender("Other");
@@ -39,6 +47,6 @@ public class homeWork3javaFaker {
         pageForm.setCity("Gurgaon");
 
         pageForm.clickSubmit();
-        pageForm.setModalIsOpen("Thanks for submitting the form");
+        pageForm.setModalIsOpen("Thanks for submitting the form");*/
     }
 } 

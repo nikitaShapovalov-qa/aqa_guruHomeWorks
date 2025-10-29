@@ -6,7 +6,13 @@ import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
+
+import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.commands.TakeScreenshot;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 import java.io.File;
 
@@ -143,5 +149,10 @@ public class PageForm {
     @Step("Проверить, что открылась таблица заполненная")
     public void setModalIsOpen(String value) {
         this.modalIsOpen.shouldHave(text(value)).shouldBe(exist);
+    }
+
+    @Attachment(value = "Скриншот", type = "image/png", fileExtension = "png")
+    public byte[] takeScreenshot() {
+        return ((TakesScreenshot)WebDriverRunner.getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }
