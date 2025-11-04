@@ -30,9 +30,8 @@ public class homeWork3javaFaker {
         });
 
         pageForm.pageIsOpen();
-        pageForm.takeScreenshot();
 
-/*        pageForm.setFirstName(data.firstName);
+        pageForm.setFirstName(data.firstName);
         pageForm.setLastName(data.lastName);
         pageForm.setUserEmail(data.userEmail);
         pageForm.setGender("Other");
@@ -47,6 +46,8 @@ public class homeWork3javaFaker {
         pageForm.setCity("Gurgaon");
 
         pageForm.clickSubmit();
-        pageForm.setModalIsOpen("Thanks for submitting the form");*/
+        pageForm.setModalIsOpen("Thanks for submitting the form");
+
+        pageForm.takeScreenshot();
     }
 } 
