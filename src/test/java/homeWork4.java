@@ -1,8 +1,11 @@
 package mnta.sck;
 
+import org.junit.jupiter.api.Tag;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Tag("simple")
 public class homeWork4 {
     public static void main(String[] args) {
         //public static void main(String[...] args) warar massive

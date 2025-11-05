@@ -1,9 +1,11 @@
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 
+@Tag("simple")
 public class homeWork1_1 {
 
     @Test

@@ -40,3 +40,9 @@ tasks.withType(JavaCompile) {
 test {
     useJUnitPlatform()
 }
+
+task testByTag(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
+    }
+}

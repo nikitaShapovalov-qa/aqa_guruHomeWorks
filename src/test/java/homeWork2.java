@@ -1,12 +1,16 @@
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PageForm;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.attachment;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@Tag("simple")
 public class homeWork2 {
 
     PageForm pageForm = new PageForm();
@@ -30,5 +34,16 @@ public class homeWork2 {
         $("#hero-section-brand-heading").shouldHave(text("The AI-powered"));
 
         pageForm.takeScreenshot();
+    }
+
+    @Test
+    public void test1() {
+        assertTrue(true);
+    }
+
+    @Test
+    @Disabled("Some reason")
+    public void test2() {
+        assertTrue(true);
     }
 }

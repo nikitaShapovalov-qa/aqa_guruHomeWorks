@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
@@ -9,6 +10,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Tag("simple")
 public class homeWork5 {
 
     ClassLoader cl = homeWork5.class.getClassLoader();

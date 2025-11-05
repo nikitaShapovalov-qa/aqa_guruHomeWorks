@@ -3,6 +3,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import com.github.javafaker.Faker;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PageForm;
 
@@ -11,6 +12,7 @@ import java.util.Locale;
 import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 
+@Tag("simple")
 public class homeWork3javaFaker {
 
     PageForm pageForm = new PageForm();

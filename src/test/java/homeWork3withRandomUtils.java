@@ -1,5 +1,6 @@
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PageForm;
 
@@ -7,6 +8,7 @@ import static Utils.RandomUtils.randomEmail;
 import static Utils.RandomUtils.randomString;
 import static com.codeborne.selenide.Selenide.*;
 
+@Tag("simple")
 public class homeWork3withRandomUtils {
 
     PageForm pageForm = new PageForm();
